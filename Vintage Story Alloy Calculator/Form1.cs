@@ -139,8 +139,8 @@ namespace Vintage_Story_Alloy_Calculator
                     double tinInMax2 = 0.60;
                     double silverInMin2 = 0.40;
                     double silverInMax2 = 0.50;
-                    int tinNeededBitsMin2 = Convert.ToInt32((oreUnitsNeeded * silverInMin2 / 5));
-                    int tinNeededBitsMax2 = Convert.ToInt32((oreUnitsNeeded * silverInMax2 / 5));
+                    int tinNeededBitsMin2 = Convert.ToInt32((oreUnitsNeeded * tinInMin2 / 5));
+                    int tinNeededBitsMax2 = Convert.ToInt32((oreUnitsNeeded * tinInMax2 / 5));
                     int silverNeededBitsMin2 = Convert.ToInt32((oreUnitsNeeded * silverInMin2 / 5));
                     int silverNeededBitsMax2 = Convert.ToInt32((oreUnitsNeeded * silverInMax2 / 5));
                     AlloyOutputLabel.Show();
