@@ -62,9 +62,9 @@ namespace Vintage_Story_Alloy_Calculator
                     double copperInMin2 = 0.88;
                     double copperInMax2 = 0.92;
                     double silverInMin = 0.08;
-                    double silverInMax = 0.12;
+                    double silverInMax = 0.16;
                     double goldInMin = 0.08;
-                    double goldInMax = 0.12;
+                    double goldInMax = 0.16;
                     int copperNeededBitsMin2 = Convert.ToInt32((oreUnitsNeeded * copperInMin2 / 5));
                     int copperNeededBitsMax2 = Convert.ToInt32((oreUnitsNeeded * copperInMax2 / 5));
                     int silverNeededBitsMin = Convert.ToInt32((oreUnitsNeeded * silverInMin / 5));
@@ -111,10 +111,10 @@ namespace Vintage_Story_Alloy_Calculator
                     AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {copperNeededBitsMin5}-{copperNeededBitsMax5} copper, and {leadNeededBitsMin}-{leadNeededBitsMax} lead bits!";
                     break;
                 case "Electrum":
-                    double silverInMin1 = 0.08;
-                    double silverInMax1 = 0.12;
-                    double goldInMin1 = 0.08;
-                    double goldInMax1 = 0.12;
+                    double silverInMin1 = 0.40;
+                    double silverInMax1 = 0.60;
+                    double goldInMin1 = 0.40;
+                    double goldInMax1 = 0.60;
                     int silverNeededBitsMin1 = Convert.ToInt32((oreUnitsNeeded * silverInMin1 / 5));
                     int silverNeededBitsMax1 = Convert.ToInt32((oreUnitsNeeded * silverInMax1 / 5));
                     int goldNeededBitsMin1 = Convert.ToInt32((oreUnitsNeeded * goldInMin1 / 5));
@@ -123,10 +123,10 @@ namespace Vintage_Story_Alloy_Calculator
                     AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {silverNeededBitsMin1}-{silverNeededBitsMax1} silver, and {goldNeededBitsMin1}-{goldNeededBitsMax1} gold bits!";
                     break;
                 case "Lead Solder":
-                    double tinInMin1 = 0.08;
-                    double tinInMax1 = 0.12;
-                    double leadInMin1 = 0.88;
-                    double leadInMax1 = 0.92;
+                    double tinInMin1 = 0.45;
+                    double tinInMax1 = 0.55;
+                    double leadInMin1 = 0.45;
+                    double leadInMax1 = 0.55;
                     int tinNeededBitsMin1 = Convert.ToInt32((oreUnitsNeeded * tinInMin1 / 5));
                     int tinNeededBitsMax1 = Convert.ToInt32((oreUnitsNeeded * tinInMax1 / 5));
                     int leadNeededBitsMin1 = Convert.ToInt32((oreUnitsNeeded * leadInMin1 / 5));
@@ -135,10 +135,10 @@ namespace Vintage_Story_Alloy_Calculator
                     AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {tinNeededBitsMin1}-{tinNeededBitsMax1} tin, and {leadNeededBitsMin1}-{leadNeededBitsMax1} lead bits!";
                     break;
                 case "Silver Solder":
-                    double tinInMin2 = 0.08;
-                    double tinInMax2 = 0.12;
-                    double silverInMin2 = 0.88;
-                    double silverInMax2 = 0.92;
+                    double tinInMin2 = 0.50;
+                    double tinInMax2 = 0.60;
+                    double silverInMin2 = 0.40;
+                    double silverInMax2 = 0.50;
                     int tinNeededBitsMin2 = Convert.ToInt32((oreUnitsNeeded * silverInMin2 / 5));
                     int tinNeededBitsMax2 = Convert.ToInt32((oreUnitsNeeded * silverInMax2 / 5));
                     int silverNeededBitsMin2 = Convert.ToInt32((oreUnitsNeeded * silverInMin2 / 5));
