@@ -45,10 +45,10 @@ namespace Vintage_Story_Alloy_Calculator
                 case "Bismuth Bronze":
                     double copperInMin1 = 0.50;
                     double copperInMax1 = 0.70;
-                    double zincInMin = 0.08;
-                    double zincInMax = 0.12;
-                    double bismuthInMin = 0.08;
-                    double bismuthInMax = 0.12;
+                    double zincInMin = 0.20;
+                    double zincInMax = 0.30;
+                    double bismuthInMin = 0.10;
+                    double bismuthInMax = 0.20;
                     int copperNeededBitsMin1 = Convert.ToInt32((oreUnitsNeeded * copperInMin1 / 5));
                     int copperNeededBitsMax1 = Convert.ToInt32((oreUnitsNeeded * copperInMax1 / 5));
                     int zincNeededBitsMin = Convert.ToInt32((oreUnitsNeeded * zincInMin / 5));
