@@ -34,7 +34,14 @@
             this.AlloySelectorLabel = new System.Windows.Forms.Label();
             this.AlloyOutputLabel = new System.Windows.Forms.Label();
             this.CalculateButton = new System.Windows.Forms.Button();
+            this.CalculateButton1 = new System.Windows.Forms.Button();
+            this.HideSelectorLabel = new System.Windows.Forms.Label();
+            this.HideAmountLabel = new System.Windows.Forms.Label();
+            this.HideSelector = new System.Windows.Forms.ComboBox();
+            this.HideAmount = new System.Windows.Forms.NumericUpDown();
+            this.TaningOutputLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.IngotAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HideAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // IngotAmount
@@ -86,7 +93,7 @@
             // 
             this.AlloyOutputLabel.AutoSize = true;
             this.AlloyOutputLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AlloyOutputLabel.Location = new System.Drawing.Point(22, 237);
+            this.AlloyOutputLabel.Location = new System.Drawing.Point(22, 226);
             this.AlloyOutputLabel.Name = "AlloyOutputLabel";
             this.AlloyOutputLabel.Size = new System.Drawing.Size(59, 19);
             this.AlloyOutputLabel.TabIndex = 4;
@@ -103,11 +110,78 @@
             this.CalculateButton.UseVisualStyleBackColor = true;
             this.CalculateButton.Click += new System.EventHandler(this.CalculateButton_Click);
             // 
+            // CalculateButton1
+            // 
+            this.CalculateButton1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CalculateButton1.Location = new System.Drawing.Point(279, 183);
+            this.CalculateButton1.Name = "CalculateButton1";
+            this.CalculateButton1.Size = new System.Drawing.Size(86, 23);
+            this.CalculateButton1.TabIndex = 10;
+            this.CalculateButton1.Text = "Calculate!";
+            this.CalculateButton1.UseVisualStyleBackColor = true;
+            this.CalculateButton1.Click += new System.EventHandler(this.CalculateButton1_Click);
+            // 
+            // HideSelectorLabel
+            // 
+            this.HideSelectorLabel.AutoSize = true;
+            this.HideSelectorLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HideSelectorLabel.Location = new System.Drawing.Point(275, 134);
+            this.HideSelectorLabel.Name = "HideSelectorLabel";
+            this.HideSelectorLabel.Size = new System.Drawing.Size(86, 19);
+            this.HideSelectorLabel.TabIndex = 9;
+            this.HideSelectorLabel.Text = "What size?";
+            // 
+            // HideAmountLabel
+            // 
+            this.HideAmountLabel.AutoSize = true;
+            this.HideAmountLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HideAmountLabel.Location = new System.Drawing.Point(22, 134);
+            this.HideAmountLabel.Name = "HideAmountLabel";
+            this.HideAmountLabel.Size = new System.Drawing.Size(248, 19);
+            this.HideAmountLabel.TabIndex = 8;
+            this.HideAmountLabel.Text = "How many hides are you making?";
+            // 
+            // HideSelector
+            // 
+            this.HideSelector.FormattingEnabled = true;
+            this.HideSelector.Items.AddRange(new object[] {
+            "Small",
+            "Medium",
+            "Large",
+            "Huge"});
+            this.HideSelector.Location = new System.Drawing.Point(279, 156);
+            this.HideSelector.Name = "HideSelector";
+            this.HideSelector.Size = new System.Drawing.Size(121, 21);
+            this.HideSelector.TabIndex = 7;
+            // 
+            // HideAmount
+            // 
+            this.HideAmount.Location = new System.Drawing.Point(26, 156);
+            this.HideAmount.Name = "HideAmount";
+            this.HideAmount.Size = new System.Drawing.Size(77, 20);
+            this.HideAmount.TabIndex = 6;
+            // 
+            // TaningOutputLabel
+            // 
+            this.TaningOutputLabel.AutoSize = true;
+            this.TaningOutputLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TaningOutputLabel.Location = new System.Drawing.Point(22, 261);
+            this.TaningOutputLabel.Name = "TaningOutputLabel";
+            this.TaningOutputLabel.Size = new System.Drawing.Size(59, 19);
+            this.TaningOutputLabel.TabIndex = 11;
+            this.TaningOutputLabel.Text = "BLANK";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 326);
+            this.Controls.Add(this.TaningOutputLabel);
+            this.Controls.Add(this.CalculateButton1);
+            this.Controls.Add(this.HideSelectorLabel);
+            this.Controls.Add(this.HideAmountLabel);
+            this.Controls.Add(this.HideSelector);
+            this.Controls.Add(this.HideAmount);
             this.Controls.Add(this.CalculateButton);
             this.Controls.Add(this.AlloyOutputLabel);
             this.Controls.Add(this.AlloySelectorLabel);
@@ -115,9 +189,10 @@
             this.Controls.Add(this.AlloySelector);
             this.Controls.Add(this.IngotAmount);
             this.Name = "Form1";
-            this.Text = "Vintage Story Alloy Calculator (VSAC)";
+            this.Text = "Vintage Story Alloy Calculator (VSAC) ++";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IngotAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HideAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,6 +206,12 @@
         private System.Windows.Forms.Label AlloySelectorLabel;
         private System.Windows.Forms.Label AlloyOutputLabel;
         private System.Windows.Forms.Button CalculateButton;
+        private System.Windows.Forms.Button CalculateButton1;
+        private System.Windows.Forms.Label HideSelectorLabel;
+        private System.Windows.Forms.Label HideAmountLabel;
+        private System.Windows.Forms.ComboBox HideSelector;
+        private System.Windows.Forms.NumericUpDown HideAmount;
+        private System.Windows.Forms.Label TaningOutputLabel;
     }
 }
 

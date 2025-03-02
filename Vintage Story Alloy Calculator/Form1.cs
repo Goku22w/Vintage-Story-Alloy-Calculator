@@ -21,6 +21,7 @@ namespace Vintage_Story_Alloy_Calculator
         private void Form1_Load(object sender, EventArgs e)
         {
             AlloyOutputLabel.Hide();
+            TaningOutputLabel.Hide();
         }
 
         private void CalculateAlloyNeed()
@@ -146,6 +147,58 @@ namespace Vintage_Story_Alloy_Calculator
                     AlloyOutputLabel.Show();
                     AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {tinNeededBitsMin2}-{tinNeededBitsMax2} tin, and {silverNeededBitsMin2}-{silverNeededBitsMax2} silver bits!";
                     break;
+                default:
+                    AlloyOutputLabel.Show();
+                    AlloyOutputLabel.Text = "No selection/improper selection made, please select an option!";
+                    break;
+            }
+        }
+
+        private void CalculateTanningNeed()
+        {
+            int hidesNeeded = Convert.ToInt32(Math.Round(HideAmount.Value, 0));
+            int liquidNeeded;
+            int barrelsNeeded;
+            int barrelsRemainder;
+            string size = HideSelector.Text;
+            switch (size)
+            {
+                case "Small":
+                    liquidNeeded = 2;
+                    int smallLiquidNeeded = hidesNeeded * liquidNeeded;
+                    barrelsNeeded = smallLiquidNeeded / 50;
+                    barrelsRemainder = smallLiquidNeeded % 50;
+                    TaningOutputLabel.Show();
+                    TaningOutputLabel.Text = $"you want {hidesNeeded} cured hides? thats {smallLiquidNeeded} liters ({barrelsNeeded}.{barrelsRemainder} barrels) of Borax, Weak, and Strong Tanin!";
+                    break;
+                case "Medium":
+                    liquidNeeded = 4;
+                    int mediumLiquidNeeded = hidesNeeded * liquidNeeded;
+                    barrelsNeeded = mediumLiquidNeeded / 50;
+                    barrelsRemainder = mediumLiquidNeeded % 50;
+                    TaningOutputLabel.Show();
+                    TaningOutputLabel.Text = $"you want {hidesNeeded} cured hides? thats {mediumLiquidNeeded} liters ({barrelsNeeded}.{barrelsRemainder} barrels) of Borax, Weak, and Strong Tanin!";
+                    break;
+                case "Large":
+                    liquidNeeded = 6;
+                    int largeLiquidNeeded = hidesNeeded * liquidNeeded;
+                    barrelsNeeded = largeLiquidNeeded / 50;
+                    barrelsRemainder = largeLiquidNeeded % 50;
+                    TaningOutputLabel.Show();
+                    TaningOutputLabel.Text = $"you want {hidesNeeded} cured hides? thats {largeLiquidNeeded} liters ({barrelsNeeded}.{barrelsRemainder} barrels) of Borax, Weak, and Strong Tanin!";
+                    break;
+                case "Huge":
+                    liquidNeeded = 10;
+                    int hugeLiquidNeeded = hidesNeeded * liquidNeeded;
+                    barrelsNeeded = hugeLiquidNeeded / 50;
+                    barrelsRemainder = hugeLiquidNeeded % 50;
+                    TaningOutputLabel.Show();
+                    TaningOutputLabel.Text = $"you want {hidesNeeded} cured hides? thats {hugeLiquidNeeded} liters ({barrelsNeeded}.{barrelsRemainder} barrels) of Borax, Weak, and Strong Tanin!";
+                    break;
+                default:
+                    TaningOutputLabel.Show();
+                    TaningOutputLabel.Text = "No selection/improper selection made, please select an option!";
+                    break;
             }
         }
 
@@ -154,6 +207,9 @@ namespace Vintage_Story_Alloy_Calculator
             CalculateAlloyNeed();
         }
 
-        
+        private void CalculateButton1_Click(object sender, EventArgs e)
+        {
+            CalculateTanningNeed();
+        }
     }
 }
