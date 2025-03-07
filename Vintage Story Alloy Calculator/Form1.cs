@@ -17,180 +17,195 @@ namespace Vintage_Story_Alloy_Calculator
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             AlloyOutputLabel.Hide();
             TaningOutputLabel.Hide();
         }
-
         private void CalculateAlloyNeed()
         {
-            int ingotsNeeded = Convert.ToInt32(Math.Round(IngotAmount.Value, 0));
-            int oreUnitsNeeded = ingotsNeeded * 100;
-            string alloyNeeded = AlloySelector.Text;
+            int ingotsNeeded = Convert.ToInt32(Math.Floor(IngotAmount.Value)); //sets how many ingots total
+            int oreUnitsNeeded = ingotsNeeded * 100; //sets how many bits are needed, each ingot costs 100 bits
+            double ingotInAMin; // sets the % amount of an alloy needed
+            double ingotInAMax;
+            double ingotInBMin;
+            double ingotInBMax;
+            double ingotInCMin;
+            double ingotInCMax; // sets the % amount of an alloy needed
+            int ingotInAOutMin; // sets the amount of bits needed
+            int ingotInAOutMax;
+            int ingotInBOutMin;
+            int ingotInBOutMax;
+            int ingotInCOutMin;
+            int ingotInCOutMax; // sets the amount of bits needed
+            string alloyNeeded = AlloySelector.Text; // sets the choice of alloy
             switch (alloyNeeded)
             {
-                case "Tin Bronze":
-                    double copperInMin = 0.88;
-                    double copperInMax = 0.92;
-                    double tinInMin = 0.08;
-                    double tinInMax = 0.12;
-                    int copperNeededBitsMin = Convert.ToInt32((oreUnitsNeeded * copperInMin / 5));
-                    int copperNeededBitsMax = Convert.ToInt32((oreUnitsNeeded * copperInMax / 5));
-                    int tinNeededBitsMin = Convert.ToInt32((oreUnitsNeeded * tinInMin / 5));
-                    int tinNeededBitsMax = Convert.ToInt32((oreUnitsNeeded * tinInMax / 5));
+                case "Tin Bronze": //ingot a is Copper, ingot b is Tin
+                    ingotInAMin = 0.88; 
+                    ingotInAMax = 0.92;
+                    ingotInBMin = 0.08;
+                    ingotInBMax = 0.12;
+                    ingotInAOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInAMin / 5));
+                    ingotInAOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInAMax / 5));
+                    ingotInBOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInBMin / 5));
+                    ingotInBOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInBMax / 5));
                     AlloyOutputLabel.Show();
-                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {copperNeededBitsMin}-{copperNeededBitsMax} copper, and {tinNeededBitsMin}-{tinNeededBitsMax} tin bits!";
+                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {ingotInAOutMin}-{ingotInAOutMax} copper, and {ingotInBOutMin}-{ingotInBOutMax} tin bits!";
                     break;
-                case "Bismuth Bronze":
-                    double copperInMin1 = 0.50;
-                    double copperInMax1 = 0.70;
-                    double zincInMin = 0.20;
-                    double zincInMax = 0.30;
-                    double bismuthInMin = 0.10;
-                    double bismuthInMax = 0.20;
-                    int copperNeededBitsMin1 = Convert.ToInt32((oreUnitsNeeded * copperInMin1 / 5));
-                    int copperNeededBitsMax1 = Convert.ToInt32((oreUnitsNeeded * copperInMax1 / 5));
-                    int zincNeededBitsMin = Convert.ToInt32((oreUnitsNeeded * zincInMin / 5));
-                    int zincNeededBitsMax = Convert.ToInt32((oreUnitsNeeded * zincInMax / 5));
-                    int bismuthNeededBitsMin = Convert.ToInt32((oreUnitsNeeded * bismuthInMin / 5));
-                    int bismuthNeededBitsMax = Convert.ToInt32((oreUnitsNeeded * bismuthInMax / 5));
+                case "Bismuth Bronze": //ingot a is Copper, ingot b is Zinc, ingot c is Bismuth
+                    ingotInAMin = 0.50;
+                    ingotInAMax = 0.70;
+                    ingotInBMin = 0.20;
+                    ingotInBMax = 0.30;
+                    ingotInCMin = 0.10;
+                    ingotInCMax = 0.20;
+                    ingotInAOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInAMin / 5));
+                    ingotInAOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInAMax / 5));
+                    ingotInBOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInBMin / 5));
+                    ingotInBOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInBMax / 5));
+                    ingotInCOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInCMin / 5));
+                    ingotInCOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInCMax / 5));
                     AlloyOutputLabel.Show();
-                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {copperNeededBitsMin1}-{copperNeededBitsMax1} copper, {zincNeededBitsMin}-{zincNeededBitsMax} zinc, and {bismuthNeededBitsMin}-{bismuthNeededBitsMax} bismuth bits!";
+                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {ingotInAOutMin}-{ingotInAOutMax} copper, {ingotInBOutMin}-{ingotInBOutMax} zinc, and {ingotInCOutMin}-{ingotInCOutMax} bismuth bits!";
                     break;
-                case "Black Bronze":
-                    double copperInMin2 = 0.88;
-                    double copperInMax2 = 0.92;
-                    double silverInMin = 0.08;
-                    double silverInMax = 0.16;
-                    double goldInMin = 0.08;
-                    double goldInMax = 0.16;
-                    int copperNeededBitsMin2 = Convert.ToInt32((oreUnitsNeeded * copperInMin2 / 5));
-                    int copperNeededBitsMax2 = Convert.ToInt32((oreUnitsNeeded * copperInMax2 / 5));
-                    int silverNeededBitsMin = Convert.ToInt32((oreUnitsNeeded * silverInMin / 5));
-                    int silverNeededBitsMax = Convert.ToInt32((oreUnitsNeeded * silverInMax / 5));
-                    int goldNeededBitsMin = Convert.ToInt32((oreUnitsNeeded * goldInMin / 5));
-                    int goldNeededBitsMax = Convert.ToInt32((oreUnitsNeeded * goldInMax / 5));
+                case "Black Bronze": //ingot a is Copper, ingot b is Silver, ingot c is Gold
+                    ingotInAMin = 0.88;
+                    ingotInAMax = 0.92;
+                    ingotInBMin = 0.08;
+                    ingotInBMax = 0.16;
+                    ingotInCMin = 0.08;
+                    ingotInCMax = 0.16;
+                    ingotInAOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInAMin / 5));
+                    ingotInAOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInAMax / 5));
+                    ingotInBOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInBMin / 5));
+                    ingotInBOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInBMax / 5));
+                    ingotInCOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInCMin / 5));
+                    ingotInCOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInCMax / 5));
                     AlloyOutputLabel.Show();
-                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {copperNeededBitsMin2}-{copperNeededBitsMax2} copper, {silverNeededBitsMin}-{silverNeededBitsMax} silver, and {goldNeededBitsMin}-{goldNeededBitsMax} gold bits!";
+                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {ingotInAOutMin}-{ingotInAOutMax} copper, {ingotInBOutMin}-{ingotInBOutMax} silver, and {ingotInCOutMin}-{ingotInCOutMax} gold bits!";
                     break;
-                case "Brass":
-                    double copperInMin3 = 0.60;
-                    double copperInMax3 = 0.70;
-                    double zincInMin1 = 0.30;
-                    double zincInMax1 = 0.40;
-                    int copperNeededBitsMin3 = Convert.ToInt32((oreUnitsNeeded * copperInMin3 / 5));
-                    int copperNeededBitsMax3 = Convert.ToInt32((oreUnitsNeeded * copperInMax3 / 5));
-                    int zincNeededBitsMin1 = Convert.ToInt32((oreUnitsNeeded * zincInMin1 / 5));
-                    int zincNeededBitsMax1 = Convert.ToInt32((oreUnitsNeeded * zincInMax1 / 5));
+                case "Brass": //ingot a is Copper, ingot b is Zinc
+                    ingotInAMin = 0.60;
+                    ingotInAMax = 0.70;
+                    ingotInBMin = 0.30;
+                    ingotInBMax = 0.40;
+                    ingotInAOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInAMin / 5));
+                    ingotInAOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInAMax / 5));
+                    ingotInBOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInBMin / 5));
+                    ingotInBOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInBMax / 5));
                     AlloyOutputLabel.Show();
-                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {copperNeededBitsMin3}-{copperNeededBitsMax3} copper, and {zincNeededBitsMin1}-{zincNeededBitsMax1} zinc bits!";
+                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {ingotInAOutMin}-{ingotInAOutMax} copper, and {ingotInBOutMin}-{ingotInBOutMax} zinc bits!";
                     break;
-                case "Cupronickel":
-                    double copperInMin4 = 0.65;
-                    double copperInMax4 = 0.75;
-                    double nickelInMin = 0.25;
-                    double nickelInMax = 0.35;
-                    int copperNeededBitsMin4 = Convert.ToInt32((oreUnitsNeeded * copperInMin4 / 5));
-                    int copperNeededBitsMax4 = Convert.ToInt32((oreUnitsNeeded * copperInMax4 / 5));
-                    int nickelNeededBitsMin = Convert.ToInt32((oreUnitsNeeded * nickelInMin / 5));
-                    int nickelNeededBitsMax = Convert.ToInt32((oreUnitsNeeded * nickelInMax / 5));
+                case "Cupronickel": //ingot a is Copper, ingot b is Nickel
+                    ingotInAMin = 0.65;
+                    ingotInAMax = 0.75;
+                    ingotInBMin = 0.25;
+                    ingotInBMax = 0.35;
+                    ingotInAOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInAMin / 5));
+                    ingotInAOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInAMax / 5));
+                    ingotInBOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInBMin / 5));
+                    ingotInBOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInBMax / 5));
                     AlloyOutputLabel.Show();
-                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {copperNeededBitsMin4}-{copperNeededBitsMax4} copper, and {nickelNeededBitsMin}-{nickelNeededBitsMax} nickel bits!";
+                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {ingotInAOutMin}-{ingotInAOutMax} copper, and {ingotInBOutMin}-{ingotInBOutMax} nickel bits!";
                     break;
-                case "Molybdochalkos":
-                    double copperInMin5 = 0.08;
-                    double copperInMax5 = 0.12;
-                    double leadInMin = 0.88;
-                    double leadInMax = 0.92;
-                    int copperNeededBitsMin5 = Convert.ToInt32((oreUnitsNeeded * copperInMin5 / 5));
-                    int copperNeededBitsMax5 = Convert.ToInt32((oreUnitsNeeded * copperInMax5 / 5));
-                    int leadNeededBitsMin = Convert.ToInt32((oreUnitsNeeded * leadInMin / 5));
-                    int leadNeededBitsMax = Convert.ToInt32((oreUnitsNeeded * leadInMax / 5));
+                case "Molybdochalkos": //ingot a is Copper, ingot b is Lead
+                    ingotInAMin = 0.08;
+                    ingotInAMax = 0.12;
+                    ingotInBMin = 0.88;
+                    ingotInBMax = 0.92;
+                    ingotInAOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInAMin / 5));
+                    ingotInAOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInAMax / 5));
+                    ingotInBOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInBMin / 5));
+                    ingotInBOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInBMax / 5));
                     AlloyOutputLabel.Show();
-                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {copperNeededBitsMin5}-{copperNeededBitsMax5} copper, and {leadNeededBitsMin}-{leadNeededBitsMax} lead bits!";
+                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {ingotInAOutMin}-{ingotInAOutMax} copper, and {ingotInBOutMin}-{ingotInBOutMax} lead bits!";
+                    break; 
+                case "Electrum": //ingot a is Silver, ingot b is Gold
+                    ingotInAMin = 0.40;
+                    ingotInAMax = 0.60;
+                    ingotInBMin = 0.40;
+                    ingotInBMax = 0.60;
+                    ingotInAOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInAMin / 5));
+                    ingotInAOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInAMax / 5));
+                    ingotInBOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInBMin / 5));
+                    ingotInBOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInBMax / 5));
+                    AlloyOutputLabel.Show();
+                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {ingotInAOutMin}-{ingotInAOutMax} silver, and {ingotInBOutMin}-{ingotInBOutMax} gold bits!";
                     break;
-                case "Electrum":
-                    double silverInMin1 = 0.40;
-                    double silverInMax1 = 0.60;
-                    double goldInMin1 = 0.40;
-                    double goldInMax1 = 0.60;
-                    int silverNeededBitsMin1 = Convert.ToInt32((oreUnitsNeeded * silverInMin1 / 5));
-                    int silverNeededBitsMax1 = Convert.ToInt32((oreUnitsNeeded * silverInMax1 / 5));
-                    int goldNeededBitsMin1 = Convert.ToInt32((oreUnitsNeeded * goldInMin1 / 5));
-                    int goldNeededBitsMax1 = Convert.ToInt32((oreUnitsNeeded * goldInMax1 / 5));
+                case "Lead Solder": //ingot a is Tin, ingot b is Lead
+                    ingotInAMin = 0.45;
+                    ingotInAMax = 0.55;
+                    ingotInBMin = 0.45;
+                    ingotInBMax = 0.55;
+                    ingotInAOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInAMin / 5));
+                    ingotInAOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInAMax / 5));
+                    ingotInBOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInBMin / 5));
+                    ingotInBOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInBMax / 5));
                     AlloyOutputLabel.Show();
-                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {silverNeededBitsMin1}-{silverNeededBitsMax1} silver, and {goldNeededBitsMin1}-{goldNeededBitsMax1} gold bits!";
+                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {ingotInAOutMin}-{ingotInAOutMax} tin, and {ingotInBOutMin}-{ingotInBOutMax} lead bits!";
                     break;
-                case "Lead Solder":
-                    double tinInMin1 = 0.45;
-                    double tinInMax1 = 0.55;
-                    double leadInMin1 = 0.45;
-                    double leadInMax1 = 0.55;
-                    int tinNeededBitsMin1 = Convert.ToInt32((oreUnitsNeeded * tinInMin1 / 5));
-                    int tinNeededBitsMax1 = Convert.ToInt32((oreUnitsNeeded * tinInMax1 / 5));
-                    int leadNeededBitsMin1 = Convert.ToInt32((oreUnitsNeeded * leadInMin1 / 5));
-                    int leadNeededBitsMax1 = Convert.ToInt32((oreUnitsNeeded * leadInMax1 / 5));
+                case "Silver Solder": //ingot a is Tin, ingot b is Silver
+                    ingotInAMin = 0.50;
+                    ingotInAMax = 0.60;
+                    ingotInBMin = 0.40;
+                    ingotInBMax = 0.50;
+                    ingotInAOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInAMin / 5));
+                    ingotInAOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInAMax / 5));
+                    ingotInBOutMin = Convert.ToInt32((oreUnitsNeeded * ingotInBMin / 5));
+                    ingotInBOutMax = Convert.ToInt32((oreUnitsNeeded * ingotInBMax / 5));
                     AlloyOutputLabel.Show();
-                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {tinNeededBitsMin1}-{tinNeededBitsMax1} tin, and {leadNeededBitsMin1}-{leadNeededBitsMax1} lead bits!";
+                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {ingotInAOutMin}-{ingotInAOutMax} tin, and {ingotInBOutMin}-{ingotInBOutMax} silver bits!";
                     break;
-                case "Silver Solder":
-                    double tinInMin2 = 0.50;
-                    double tinInMax2 = 0.60;
-                    double silverInMin2 = 0.40;
-                    double silverInMax2 = 0.50;
-                    int tinNeededBitsMin2 = Convert.ToInt32((oreUnitsNeeded * tinInMin2 / 5));
-                    int tinNeededBitsMax2 = Convert.ToInt32((oreUnitsNeeded * tinInMax2 / 5));
-                    int silverNeededBitsMin2 = Convert.ToInt32((oreUnitsNeeded * silverInMin2 / 5));
-                    int silverNeededBitsMax2 = Convert.ToInt32((oreUnitsNeeded * silverInMax2 / 5));
+                case "Meteoric Iron": //too unique to follow previous calculations
+                    int meteorPeicesNeeded = ingotsNeeded * 2;
+                    int meteorBitsNeeded = ingotsNeeded * 20;
                     AlloyOutputLabel.Show();
-                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {tinNeededBitsMin2}-{tinNeededBitsMax2} tin, and {silverNeededBitsMin2}-{silverNeededBitsMax2} silver bits!";
+                    AlloyOutputLabel.Text = $"you want {ingotsNeeded} ingots of {alloyNeeded}? thats {meteorPeicesNeeded} meteoric iron pieces, or {meteorBitsNeeded} meteoric iron bits!";
                     break;
-                default:
+                default: //selection was non-existant or was the seperator between alloys and unique ingots
                     AlloyOutputLabel.Show();
-                    AlloyOutputLabel.Text = "No selection/improper selection made, please select an option!";
+                    AlloyOutputLabel.Text = "No selection/improper selection made, please select a valid option!";
                     break;
             }
         }
-
         private void CalculateTanningNeed()
         {
-            int hidesNeeded = Convert.ToInt32(Math.Round(HideAmount.Value, 0));
-            int liquidNeeded;
-            int barrelsNeeded;
-            int barrelsRemainder;
+            int hidesNeeded = Convert.ToInt32(Math.Floor(HideAmount.Value)); // sets how many hides are being made
+            float liquidNeeded; //sets liquid needed, in liters
+            int barrelsNeeded; //sets total barrels needed, 50 liters = 1 barrel
+            float barrelsRemainder; // sets the remainder of the barrels
             string size = HideSelector.Text;
             switch (size)
             {
                 case "Small":
                     liquidNeeded = 2;
-                    int smallLiquidNeeded = hidesNeeded * liquidNeeded;
-                    barrelsNeeded = smallLiquidNeeded / 50;
+                    float smallLiquidNeeded = hidesNeeded * liquidNeeded;
+                    barrelsNeeded = Convert.ToInt32(Math.Floor(smallLiquidNeeded / 50));
                     barrelsRemainder = smallLiquidNeeded % 50;
                     TaningOutputLabel.Show();
                     TaningOutputLabel.Text = $"you want {hidesNeeded} cured hides? thats {smallLiquidNeeded} liters ({barrelsNeeded}.{barrelsRemainder} barrels) of Borax, Weak, and Strong Tanin!";
                     break;
                 case "Medium":
                     liquidNeeded = 4;
-                    int mediumLiquidNeeded = hidesNeeded * liquidNeeded;
-                    barrelsNeeded = mediumLiquidNeeded / 50;
+                    float mediumLiquidNeeded = hidesNeeded * liquidNeeded;
+                    barrelsNeeded = Convert.ToInt32(Math.Floor(mediumLiquidNeeded / 50));
                     barrelsRemainder = mediumLiquidNeeded % 50;
                     TaningOutputLabel.Show();
                     TaningOutputLabel.Text = $"you want {hidesNeeded} cured hides? thats {mediumLiquidNeeded} liters ({barrelsNeeded}.{barrelsRemainder} barrels) of Borax, Weak, and Strong Tanin!";
                     break;
                 case "Large":
                     liquidNeeded = 6;
-                    int largeLiquidNeeded = hidesNeeded * liquidNeeded;
-                    barrelsNeeded = largeLiquidNeeded / 50;
+                    float largeLiquidNeeded = hidesNeeded * liquidNeeded;
+                    barrelsNeeded = Convert.ToInt32(Math.Floor(largeLiquidNeeded / 50));
                     barrelsRemainder = largeLiquidNeeded % 50;
                     TaningOutputLabel.Show();
                     TaningOutputLabel.Text = $"you want {hidesNeeded} cured hides? thats {largeLiquidNeeded} liters ({barrelsNeeded}.{barrelsRemainder} barrels) of Borax, Weak, and Strong Tanin!";
                     break;
                 case "Huge":
                     liquidNeeded = 10;
-                    int hugeLiquidNeeded = hidesNeeded * liquidNeeded;
-                    barrelsNeeded = hugeLiquidNeeded / 50;
+                    float hugeLiquidNeeded = hidesNeeded * liquidNeeded;
+                    barrelsNeeded = Convert.ToInt32(Math.Floor(hugeLiquidNeeded / 50));
                     barrelsRemainder = hugeLiquidNeeded % 50;
                     TaningOutputLabel.Show();
                     TaningOutputLabel.Text = $"you want {hidesNeeded} cured hides? thats {hugeLiquidNeeded} liters ({barrelsNeeded}.{barrelsRemainder} barrels) of Borax, Weak, and Strong Tanin!";
@@ -201,12 +216,10 @@ namespace Vintage_Story_Alloy_Calculator
                     break;
             }
         }
-
         private void CalculateButton_Click(object sender, EventArgs e)
         {
             CalculateAlloyNeed();
         }
-
         private void CalculateButton1_Click(object sender, EventArgs e)
         {
             CalculateTanningNeed();

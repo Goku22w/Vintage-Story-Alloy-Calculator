@@ -63,7 +63,9 @@
             "Molybdochalkos",
             "Electrum",
             "Lead Solder",
-            "Silver Solder"});
+            "Silver Solder",
+            "---Other Ingots---",
+            "Meteoric Iron"});
             this.AlloySelector.Location = new System.Drawing.Point(279, 72);
             this.AlloySelector.Name = "AlloySelector";
             this.AlloySelector.Size = new System.Drawing.Size(121, 21);
@@ -104,9 +106,9 @@
             this.CalculateButton.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CalculateButton.Location = new System.Drawing.Point(279, 99);
             this.CalculateButton.Name = "CalculateButton";
-            this.CalculateButton.Size = new System.Drawing.Size(86, 23);
+            this.CalculateButton.Size = new System.Drawing.Size(86, 27);
             this.CalculateButton.TabIndex = 5;
-            this.CalculateButton.Text = "Calculate!";
+            this.CalculateButton.Text = "Calculate";
             this.CalculateButton.UseVisualStyleBackColor = true;
             this.CalculateButton.Click += new System.EventHandler(this.CalculateButton_Click);
             // 
@@ -115,9 +117,9 @@
             this.CalculateButton1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CalculateButton1.Location = new System.Drawing.Point(279, 183);
             this.CalculateButton1.Name = "CalculateButton1";
-            this.CalculateButton1.Size = new System.Drawing.Size(86, 23);
+            this.CalculateButton1.Size = new System.Drawing.Size(86, 27);
             this.CalculateButton1.TabIndex = 10;
-            this.CalculateButton1.Text = "Calculate!";
+            this.CalculateButton1.Text = "Calculate";
             this.CalculateButton1.UseVisualStyleBackColor = true;
             this.CalculateButton1.Click += new System.EventHandler(this.CalculateButton1_Click);
             // 
@@ -175,7 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 326);
+            this.ClientSize = new System.Drawing.Size(699, 326);
             this.Controls.Add(this.TaningOutputLabel);
             this.Controls.Add(this.CalculateButton1);
             this.Controls.Add(this.HideSelectorLabel);
